@@ -1,2 +1,673 @@
 # hadiaa_mu
 hadia
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Untukmu | Cinta & Musik</title>
+    <!-- Google Fonts + Font Awesome Professional -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 10% 30%, #1e1a3a, #0c0b1a);
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            color: #f3eefc;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 70% 40%, rgba(255, 210, 230, 0.05) 0%, rgba(0, 0, 0, 0.2) 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .glass-card {
+            background: rgba(25, 20, 45, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 2.5rem;
+            border: 1px solid rgba(255, 215, 245, 0.25);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 0.5px rgba(255, 255, 255, 0.05) inset;
+            transition: all 0.3s ease;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #FFD6E8, #FFADCB, #D9B4FF);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 0.3px;
+            color: #e2cbe9;
+            border-top: 1px dashed rgba(255, 200, 230, 0.5);
+            display: inline-block;
+            padding-top: 0.75rem;
+        }
+
+        .heart-icon {
+            animation: pulseSoft 2s infinite;
+            display: inline-block;
+            margin: 0 0.25rem;
+            color: #FF98C1;
+        }
+
+        @keyframes pulseSoft {
+            0% { transform: scale(1); text-shadow: 0 0 0px #ff98c1; }
+            50% { transform: scale(1.12); text-shadow: 0 0 8px #ff98c1; }
+            100% { transform: scale(1); text-shadow: 0 0 0px #ff98c1; }
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            padding: 2rem 1.8rem;
+            text-align: left;
+            transition: transform 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-6px);
+            background: rgba(35, 28, 58, 0.7);
+            border-color: rgba(255, 175, 205, 0.6);
+        }
+
+        .info-card i {
+            font-size: 2.5rem;
+            background: linear-gradient(145deg, #FFB7D2, #E9A0FA);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .info-card h3 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .info-card p {
+            color: #e1d4f0;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .romance-text {
+            font-style: italic;
+            border-left: 3px solid #FF9EC5;
+            padding-left: 1.2rem;
+            margin-top: 1rem;
+            font-size: 1rem;
+        }
+
+        .counter-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 2rem;
+            padding: 0.8rem 1.5rem;
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            backdrop-filter: blur(4px);
+            margin-top: 1rem;
+        }
+
+        .counter-number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #FFE6F0, #FFBDE0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 1;
+        }
+
+        .btn-romantic {
+            background: linear-gradient(105deg, #ffb7d2, #ff8bb5);
+            border: none;
+            color: #1F1A2E;
+            font-weight: 600;
+            padding: 0.8rem 1.8rem;
+            border-radius: 3rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 8px 18px rgba(255, 120, 160, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-romantic:hover {
+            transform: scale(1.02);
+            background: linear-gradient(105deg, #ffc2db, #ff9ec2);
+            box-shadow: 0 12px 24px rgba(255, 100, 150, 0.4);
+            color: #0e0b1a;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #ffbbd8;
+            color: #ffd9ee;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 187, 216, 0.15);
+            border-color: #ff9ac2;
+            color: white;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1.8rem;
+            opacity: 0.8;
+            animation: floatUpLove 4s ease-out forwards;
+            filter: drop-shadow(0 0 5px #ff99bb);
+        }
+
+        @keyframes floatUpLove {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-180px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .quote-slide {
+            background: rgba(45, 35, 70, 0.55);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .quote-text {
+            font-size: 1.2rem;
+            font-weight: 400;
+            font-style: italic;
+            color: #f3defa;
+        }
+
+        .quote-author {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #efbee2;
+        }
+
+        /* Audio player styling dengan input URL */
+        .audio-card {
+            margin-bottom: 2rem;
+            padding: 1.5rem 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .audio-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .audio-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .audio-info i {
+            font-size: 2rem;
+            color: #ffb7d2;
+        }
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .custom-audio-btn {
+            background: rgba(255, 200, 220, 0.2);
+            border: 1px solid #ffb7d2;
+            border-radius: 3rem;
+            padding: 0.5rem 1.2rem;
+            color: #ffe3f0;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .custom-audio-btn:hover {
+            background: #ffb7d2;
+            color: #1f1a2e;
+        }
+        audio {
+            border-radius: 3rem;
+            background: rgba(0,0,0,0.4);
+            height: 40px;
+            width: 260px;
+        }
+        .url-input-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(0,0,0,0.3);
+            padding: 0.6rem 1rem;
+            border-radius: 3rem;
+            backdrop-filter: blur(4px);
+        }
+        .url-input-group input {
+            background: rgba(255,255,255,0.15);
+            border: 1px solid #ffb7d2;
+            border-radius: 2rem;
+            padding: 0.5rem 1rem;
+            color: white;
+            font-size: 0.85rem;
+            width: 260px;
+            outline: none;
+            transition: 0.2s;
+        }
+        .url-input-group input:focus {
+            border-color: #ff98c1;
+            background: rgba(255,255,255,0.25);
+        }
+        .url-input-group input::placeholder {
+            color: #c4b5d1;
+        }
+        .audio-note {
+            font-size: 0.7rem;
+            color: #ceb5e5;
+            margin-top: 5px;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 200, 230, 0.3);
+            color: #bfb2dc;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero .subhead {
+                font-size: 1rem;
+            }
+            .info-card h3 {
+                font-size: 1.4rem;
+            }
+            .counter-number {
+                font-size: 1.8rem;
+            }
+            .audio-row {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .url-input-group {
+                justify-content: space-between;
+            }
+            .url-input-group input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="floating-hearts" id="floatingHearts"></div>
+
+<div class="container">
+    <!-- Hero Section -->
+    <div class="glass-card hero">
+        <h1>✨ Untuk Kamu, <span class="heart-icon">❤️</span> <br> Cinta Terindah</h1>
+        <div class="subhead">
+            <i class="fas fa-feather-alt"></i>  cerita kita, ditulis dalam waktu & hati  <i class="fas fa-infinity"></i>
+        </div>
+        <div style="margin-top: 1.8rem;">
+            <button class="btn-romantic" id="heartBeatBtn"><i class="fas fa-heart"></i> Kirim Cinta <i class="fas fa-arrow-right"></i></button>
+            <button class="btn-romantic btn-outline" id="specialNoteBtn" style="margin-left: 12px;"><i class="fas fa-envelope-open-text"></i> Pesan Spesial</button>
+        </div>
+    </div>
+
+    <!-- AUDIO PLAYER - Dengan fitur ganti URL (tanpa upload file) -->
+    <div class="glass-card audio-card">
+        <div class="audio-row">
+            <div class="audio-info">
+                <i class="fas fa-headphones-alt"></i>
+                <div>
+                    <strong style="font-size: 1rem;">🎵 Lagu Spesial Untukmu</strong>
+                </div>
+            </div>
+            <div class="audio-controls">
+                <audio id="romanticAudio" controls preload="auto">
+                    <source src="Daniel Caesar - Superpowers (Official Audio).mp3" type="audio/mpeg">
+                    Browser Anda tidak mendukung pemutar audio.
+                </audio>
+                
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid Section: Profesional + Romantis -->
+    <div class="grid-2col">
+        <div class="glass-card info-card">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Hari Kita ❤️</h3>
+            <p>Sejak pertama kali kita memulai cerita ini, setiap hari adalah anugerah.</p>
+            <div class="counter-box">
+                <span class="counter-number" id="daysCounter">0</span>
+                <span style="font-size: 1.2rem;">hari penuh cinta</span>
+            </div>
+            <div class="romance-text">
+                <i class="fas fa-quote-left" style="margin-right: 6px; font-size: 0.8rem;"></i> Setiap detik bersamamu mengukir kebahagiaan yang tak ternilai.
+            </div>
+        </div>
+
+        <div class="glass-card info-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Surat Cinta Digital</h3>
+            <p>Kepadamu yang membuat dunia terasa lebih lembut :</p>
+            <p style="margin-top: 12px; line-height: 1.6;">“Dalam keramaian dunia, kamu adalah ketenangan yang tak kucari tapi sangat kutunggu. Senyummu adalah kode rahasia yang membuat segalanya berwarna. Terima kasih sudah menjadi rumah.”</p>
+            <div style="margin-top: 1rem;">
+                <i class="fas fa-pen-fancy" style="color: #ffadd2;"></i> <span style="font-size: 0.85rem;"> — dari hatiku untuk hatimu</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-2col">
+        <div class="glass-card info-card">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h3>Janji Kecil</h3>
+            <p>Setiap hari aku memilihmu, bukan karena mudah, tapi karena bersama kamu, semua terasa lebih bermakna. Aku akan selalu ada, di setiap tawa maupun air mata.</p>
+            <button class="btn-romantic" style="margin-top: 1.2rem; background: rgba(255,200,220,0.2); border: 1px solid #ffb7d2;" id="promiseBtn"><i class="fas fa-feather"></i> Ingatkan Janji</button>
+        </div>
+
+        <div class="glass-card info-card">
+            <i class="fas fa-star-of-life"></i>
+            <h3>Mimpi Bersama</h3>
+            <p>Dari sunrise hingga senja, kelak kita baca puisi di teras kecil, menikmati kopi dan cerita. Setiap langkah kita adalah kanvas yang kita lukis perlahan.</p>
+            <div class="romance-text" style="border-left-color: #CE98FF;">
+                🌙 “Dan di penghujung cerita, aku tetap ingin pulang kearahmu.”
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card quote-slide">
+        <i class="fas fa-quote-right" style="font-size: 1.7rem; opacity: 0.7; display: block; margin-bottom: 0.5rem;"></i>
+        <div class="quote-text" id="dynamicQuote">“Cinta bukan tentang saling menatap, tapi melihat ke arah yang sama bersama.”</div>
+        <div class="quote-author" id="quoteAuthor">— Antoine de Saint-Exupéry</div>
+        <div style="margin-top: 1.2rem;">
+            <button id="nextQuoteBtn" class="btn-romantic btn-outline" style="padding: 0.4rem 1.2rem; font-size: 0.85rem;"><i class="fas fa-sync-alt"></i> Quote Romantis Lainnya</button>
+        </div>
+    </div>
+
+    <footer>
+        <i class="fas fa-heart" style="color: #f8a5c2;"></i> dibuat dengan sepenuh hati & sentuhan profesional — untuk kisah yang abadi <i class="fas fa-heart" style="color: #f8a5c2;"></i>
+    </footer>
+</div>
+
+<script>
+    // ------------------------------
+    // 1. DAYS COUNTER (professional & romantic)
+    const startDate = new Date(2024, 1, 10); // 10 Februari 2024 (ubah sesuai momen spesial Anda)
+    function updateDaysCounter() {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const startMidnight = new Date(startDate);
+        startMidnight.setHours(0, 0, 0, 0);
+        const diffTime = today - startMidnight;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        const daysElement = document.getElementById('daysCounter');
+        if (daysElement) daysElement.innerText = diffDays >= 0 ? diffDays : 0;
+    }
+    updateDaysCounter();
+    setInterval(updateDaysCounter, 3600000);
+
+    // 2. Floating Hearts Animation
+    function createFloatingHeart(x = null, y = null) {
+        const heartContainer = document.getElementById('floatingHearts');
+        const heartDiv = document.createElement('div');
+        heartDiv.classList.add('floating-heart');
+        const heartSymbols = ['❤️', '💖', '💗', '💓', '🌸', '✨', '💕', '🌹'];
+        heartDiv.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+        heartDiv.style.fontSize = `${1.2 + Math.random() * 1.2}rem`;
+        let posX, posY;
+        if (x !== null && y !== null) { posX = x; posY = y; } 
+        else { posX = Math.random() * window.innerWidth; posY = window.innerHeight - 20; }
+        heartDiv.style.left = `${posX}px`;
+        heartDiv.style.top = `${posY}px`;
+        heartDiv.style.position = 'fixed';
+        heartContainer.appendChild(heartDiv);
+        heartDiv.addEventListener('animationend', () => heartDiv.remove());
+    }
+    for (let i = 0; i < 12; i++) setTimeout(() => createFloatingHeart(), i * 180);
+
+    const heartBtn = document.getElementById('heartBeatBtn');
+    if (heartBtn) {
+        heartBtn.addEventListener('click', (e) => {
+            const rect = heartBtn.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            for (let i = 0; i < 14; i++) {
+                setTimeout(() => {
+                    const offsetX = (Math.random() - 0.5) * 80;
+                    const offsetY = (Math.random() - 0.5) * 60;
+                    createFloatingHeart(centerX + offsetX, centerY + offsetY);
+                }, i * 40);
+            }
+            const toastMsg = document.createElement('div');
+            toastMsg.innerText = '💕 Cinta terkirim untukmu 💕';
+            toastMsg.style.cssText = 'position:fixed; bottom:30px; left:50%; transform:translateX(-50%); background:#2a2348cc; backdrop-filter:blur(10px); padding:0.7rem 1.5rem; border-radius:50px; color:#FFDFEF; font-weight:500; border:1px solid #ff9fc5; z-index:2000; font-size:0.9rem;';
+            document.body.appendChild(toastMsg);
+            setTimeout(() => toastMsg.remove(), 1800);
+        });
+    }
+
+    const specialBtn = document.getElementById('specialNoteBtn');
+    if (specialBtn) {
+        specialBtn.addEventListener('click', () => {
+            const modalDiv = document.createElement('div');
+            modalDiv.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); backdrop-filter:blur(6px); z-index:10000; display:flex; align-items:center; justify-content:center;';
+            const card = document.createElement('div');
+            card.style.background = 'linear-gradient(145deg, #261f3e, #1c1632)';
+            card.style.borderRadius = '2rem';
+            card.style.maxWidth = '400px';
+            card.style.width = '85%';
+            card.style.padding = '2rem';
+            card.style.border = '1px solid #f7aecb';
+            card.style.boxShadow = '0 30px 40px rgba(0,0,0,0.5)';
+            card.style.textAlign = 'center';
+            card.innerHTML = `
+                <i class="fas fa-envelope-open-heart" style="font-size: 3rem; color:#FFA9CD; margin-bottom: 1rem;"></i>
+                <h2 style="font-family: 'Playfair Display'; font-size: 1.8rem; margin-bottom: 0.5rem;">Pesan untukmu 🤍</h2>
+                <p style="margin: 1rem 0; line-height: 1.6; color:#e7d5fc;">Kamu adalah alasan mengapa hatiku selalu tersenyum. Terima kasih sudah menjadi pelangi di hari-hariku. Semoga kita selalu bersama, merenda mimpi dan cerita indah.</p>
+                <button id="closeModalBtn" style="background: #ff98be; border: none; padding: 0.6rem 1.5rem; border-radius: 2rem; font-weight: bold; margin-top: 0.5rem; cursor: pointer;">Tutup &nbsp;❤️</button>
+            `;
+            modalDiv.appendChild(card);
+            document.body.appendChild(modalDiv);
+            const closeModal = () => modalDiv.remove();
+            card.querySelector('#closeModalBtn').addEventListener('click', closeModal);
+            modalDiv.addEventListener('click', (e) => { if(e.target === modalDiv) closeModal(); });
+        });
+    }
+    
+    const promiseBtn = document.getElementById('promiseBtn');
+    if(promiseBtn){
+        promiseBtn.addEventListener('click', () => {
+            createFloatingHeart();
+            const notif = document.createElement('div');
+            notif.innerText = '✨ Janji: Aku akan selalu berusaha menjadi lebih baik untuk kita ✨';
+            notif.style.cssText = 'position:fixed; bottom:70px; left:20px; right:20px; max-width:320px; margin:auto; background:#281f44dd; backdrop-filter:blur(12px); padding:0.9rem; border-radius:60px; text-align:center; font-size:0.85rem; border:1px solid #f5abc9; font-weight:500; z-index:1000;';
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 3500);
+        });
+    }
+    
+    // Dynamic Quotes
+    const quotesLibrary = [
+        { text: "Cinta bukan mencari kesempurnaan, tetapi belajar melihat keindahan dalam ketidaksempurnaan.", author: "Paulo Coelho" },
+        { text: "Bersamamu, bahkan waktu terasa diam karena ingin terus menikmati senyummu.", author: "Rumi" },
+        { text: "Kamu adalah inspirasiku, alasan aku percaya pada takdir yang manis.", author: "Unknown" },
+        { text: "Cintaku padamu bukan hanya perasaan, tapi pilihan setiap hari untuk memilihmu.", author: "—" },
+        { text: "Kita mungkin dua insan, tapi hatiku berdetak hanya dalam irama namamu.", author: "Lang Leav" },
+        { text: "Kamu membuat dunia lebih sunyi di tempat ramai, dan lebih hangat saat sepi.", author: "for you ❤️" },
+        { text: "Jika cinta adalah puisi, maka kamu adalah bait terindah yang tak pernah usai.", author: "Sapardi Djoko Damono" },
+    ];
+    let currentQuoteIdx = 0;
+    const quoteTextEl = document.getElementById('dynamicQuote');
+    const quoteAuthorEl = document.getElementById('quoteAuthor');
+    function updateQuote(index) {
+        const quote = quotesLibrary[index % quotesLibrary.length];
+        if(quoteTextEl) quoteTextEl.innerText = `“${quote.text}”`;
+        if(quoteAuthorEl) quoteAuthorEl.innerText = `— ${quote.author}`;
+    }
+    updateQuote(0);
+    const nextQuoteBtn = document.getElementById('nextQuoteBtn');
+    if(nextQuoteBtn) {
+        nextQuoteBtn.addEventListener('click', () => {
+            currentQuoteIdx = (currentQuoteIdx + 1) % quotesLibrary.length;
+            updateQuote(currentQuoteIdx);
+            for (let i=0; i<5; i++) setTimeout(() => createFloatingHeart(), i*50);
+        });
+    }
+    setInterval(() => { if (document.visibilityState === 'visible') createFloatingHeart(); }, 8000);
+
+    // ========== AUDIO HANDLER : Ganti Lagu via URL (tanpa upload file) ==========
+    const audioPlayer = document.getElementById('romanticAudio');
+    const resetBtn = document.getElementById('resetAudioBtn');
+    const changeAudioBtn = document.getElementById('changeAudioBtn');
+    const audioUrlInput = document.getElementById('audioUrlInput');
+    
+    // URL default lagu romantis (Pixabay - romantic love song)
+    const DEFAULT_SONG_URL = "https://youtu.be/rScwLoES2bM?si=nUhoUdL0Gjd75Av0";
+    
+    // Fungsi untuk mengganti source audio
+    function changeAudioSource(url) {
+        if (!url || url.trim() === "") {
+            showToast("⚠️ Masukkan URL lagu yang valid!");
+            return false;
+        }
+        // Validasi sederhana: mengandung .mp3 atau audio umum
+        if (!url.includes('.mp3') && !url.includes('.ogg') && !url.includes('.wav')) {
+            showToast("💡 Pastikan URL berakhiran .mp3 (direct link)", 3000);
+        }
+        audioPlayer.src = url;
+        audioPlayer.load();
+        audioPlayer.play().catch(e => {
+            console.log("Autoplay diblokir, silakan klik tombol play manual.");
+            showToast("🎵 Lagu diganti! Klik tombol play untuk mendengarkan.", 2500);
+        });
+        showToast("✨ Lagu berhasil diganti! Nikmati melodi cinta.", 2000);
+        createFloatingHeart();
+        return true;
+    }
+    
+    // Event listener tombol Ganti Lagu
+    if (changeAudioBtn) {
+        changeAudioBtn.addEventListener('click', () => {
+            let newUrl = audioUrlInput.value.trim();
+            if (newUrl === "") {
+                showToast("📌 Masukkan URL lagu terlebih dahulu.");
+                return;
+            }
+            changeAudioSource(newUrl);
+        });
+    }
+    
+    // Event listener Reset ke lagu default
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            audioPlayer.src = DEFAULT_SONG_URL;
+            audioPlayer.load();
+            audioPlayer.play().catch(e => console.log("Autoplay mungkin diblokir"));
+            // Update input field dengan default URL
+            audioUrlInput.value = DEFAULT_SONG_URL;
+            showToast("🎶 Lagu direset ke default romantis.", 2000);
+            createFloatingHeart();
+        });
+    }
+    
+    // Fungsi toast sederhana
+    function showToast(message, duration = 2500) {
+        const toast = document.createElement('div');
+        toast.innerText = message;
+        toast.style.cssText = 'position:fixed; bottom:20px; left:50%; transform:translateX(-50%); background:#2a2348cc; backdrop-filter:blur(10px); padding:8px 20px; border-radius:50px; font-size:0.8rem; color:#ffe0f0; border:1px solid #ff9fc5; z-index:2000; white-space:nowrap; max-width:90%; white-space:normal; text-align:center;';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), duration);
+    }
+    
+    // Set initial input value to default (optional, sudah ada value di html)
+    // Jika default audio berbeda, sinkronkan
+    audioUrlInput.value = DEFAULT_SONG_URL;
+</script>
+</body>
+</html>
